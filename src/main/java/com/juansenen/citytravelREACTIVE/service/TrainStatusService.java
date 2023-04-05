@@ -17,4 +17,5 @@ public interface TrainStatusService {
 
     Mono<Void> deleteOneTrain (String code);
 
+    Mono<TrainStatus> updateTrainStatus (String code, TrainStatus updateTrain);
 }

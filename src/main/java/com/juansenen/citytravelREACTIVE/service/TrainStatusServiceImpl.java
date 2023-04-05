@@ -41,9 +41,18 @@ public class TrainStatusServiceImpl implements TrainStatusService{
          * con el objeto TrainStatus  y ejecutamos la eliminación del tren.
          *  Se utiliza el método then() para convertir el resultado en un Mono<Void> y devolverlo.
          */
+    }
 
-
-
-
+    @Override
+    public Mono<TrainStatus> updateTrainStatus(String code, TrainStatus updateTrain) {
+        return trainStatusRepository.findByCode(code)
+                .flatMap(trainStatusupdate -> {
+                    trainStatusupdate.setCode(updateTrain.getCode());
+                    trainStatusupdate.setLineId(updateTrain.getLineId());
+                    trainStatusupdate.setVelocity(updateTrain.getVelocity());
+                    trainStatusupdate.setWeight(updateTrain.getWeight());
+                    trainStatusupdate.setKwH(updateTrain.getKwH());
+                    return trainStatusRepository.save(trainStatusupdate);
+                });
     }
 }

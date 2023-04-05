@@ -49,4 +49,10 @@ public class TrainStatusController {
          */
     }
 
+    @PutMapping(value = "/trainStatus/{code}")
+    public Mono<ResponseEntity<TrainStatus>> updateTrainStatus (@PathVariable String code, @RequestBody TrainStatus trainUpdated){
+        return trainStatusService.updateTrainStatus(code, trainUpdated)
+                .map(trainStatus -> ResponseEntity.ok(trainStatus));
+    }
+
 }
