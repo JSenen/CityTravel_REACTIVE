@@ -13,4 +13,5 @@ public interface TrainStatusRepository extends ReactiveMongoRepository<TrainStat
     /** Elemento individual MONO */
     Mono<TrainStatus> findByCode(String code);
 
+    Mono<Void> deleteByCode(String code);
 }

@@ -31,4 +31,19 @@ public class TrainStatusServiceImpl implements TrainStatusService{
     public Mono<TrainStatus> getOneTrain(String code) {
         return trainStatusRepository.findByCode(code);
     }
+
+    @Override
+    public Mono<Void> deleteOneTrain(String code) {
+        return trainStatusRepository.findByCode(code) //Recuperamos el objeto
+                .flatMap(trainStatus -> trainStatusRepository.deleteByCode(trainStatus.getCode()))
+                .then();
+        /** se utiliza flatMap() para transformar este Mono<TrainStatus> en un Mono<Void> que llama a deleteByCode()
+         * con el objeto TrainStatus  y ejecutamos la eliminación del tren.
+         *  Se utiliza el método then() para convertir el resultado en un Mono<Void> y devolverlo.
+         */
+
+
+
+
+    }
 }
