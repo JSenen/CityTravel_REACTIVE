@@ -12,6 +12,7 @@ public interface TrainStatusService {
     Flux<TrainStatus> findAll();
     Mono<TrainStatus> findByCode(String code);
 
-    void addTrain(TrainStatus trainStatus);
+    Mono<TrainStatus> addTrain(TrainStatus trainStatus);
+    Mono<TrainStatus> getOneTrain(String code); //Notacion MONO para ser reactiva
 
 }
