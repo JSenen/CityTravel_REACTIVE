@@ -38,4 +38,15 @@ public class TrainStatusController {
 
     }
 
+    @DeleteMapping(value="/trainStatus/{code}")
+    public Mono<ResponseEntity<Void>> deleteTrainStatusByCode(@PathVariable String code) {
+        return trainStatusService.deleteOneTrain(code)
+                .then(Mono.just(ResponseEntity.noContent().<Void>build()))
+                .onErrorResume(e -> Mono.just(ResponseEntity.notFound().build()));
+
+        /** Para cumplir con el tipo Mono de retorno, se usa then() para envolver el código 204 de respuesta
+         * si se produce error 404 tambien se empaqueta .onErrorResume( ...
+         */
+    }
+
 }

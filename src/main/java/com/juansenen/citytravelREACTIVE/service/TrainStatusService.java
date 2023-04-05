@@ -15,4 +15,6 @@ public interface TrainStatusService {
     Mono<TrainStatus> addTrain(TrainStatus trainStatus);
     Mono<TrainStatus> getOneTrain(String code); //Notacion MONO para ser reactiva
 
+    Mono<Void> deleteOneTrain (String code);
+
 }
