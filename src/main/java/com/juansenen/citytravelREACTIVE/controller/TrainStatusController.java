@@ -3,7 +3,9 @@ package com.juansenen.citytravelREACTIVE.controller;
 import com.juansenen.citytravelREACTIVE.domain.TrainStatus;
 import com.juansenen.citytravelREACTIVE.service.TrainStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,8 +24,9 @@ public class TrainStatusController {
     }
 
     @PostMapping(value = "/trainsStatus")
-    public void addTrainStatus(@RequestBody TrainStatus trainStatus){
-        trainStatusService.addTrain(trainStatus);
+    public ResponseEntity<TrainStatus> addTrainStatus(@RequestBody TrainStatus trainStatus){
+        TrainStatus newTrainStatus = trainStatusService.addTrain(trainStatus);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(newTrainStatus);
     }
 
 }

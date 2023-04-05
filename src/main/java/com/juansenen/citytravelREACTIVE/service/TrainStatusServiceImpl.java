@@ -23,7 +23,7 @@ public class TrainStatusServiceImpl implements TrainStatusService{
     }
 
     @Override
-    public void addTrain(TrainStatus trainStatus) {
-        trainStatusRepository.save(trainStatus).block();
+    public TrainStatus addTrain(TrainStatus trainStatus) {
+        return trainStatusRepository.save(trainStatus).block();
     }
 }

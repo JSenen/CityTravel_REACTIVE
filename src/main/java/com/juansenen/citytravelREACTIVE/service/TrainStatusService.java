@@ -12,6 +12,6 @@ public interface TrainStatusService {
     Flux<TrainStatus> findAll();
     Mono<TrainStatus> findByCode(String code);
 
-    void addTrain(TrainStatus trainStatus);
+    TrainStatus addTrain(TrainStatus trainStatus);
 
 }
