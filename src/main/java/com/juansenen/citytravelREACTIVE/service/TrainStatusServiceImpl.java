@@ -23,7 +23,12 @@ public class TrainStatusServiceImpl implements TrainStatusService{
     }
 
     @Override
-    public TrainStatus addTrain(TrainStatus trainStatus) {
-        return trainStatusRepository.save(trainStatus).block();
+    public Mono<TrainStatus> addTrain(TrainStatus trainStatus) {
+        return trainStatusRepository.save(trainStatus);
+    }
+
+    @Override
+    public Mono<TrainStatus> getOneTrain(String code) {
+        return trainStatusRepository.findByCode(code);
     }
 }
