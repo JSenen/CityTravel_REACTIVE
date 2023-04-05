@@ -18,7 +18,7 @@ public class TrainStatus {
     @Field //Campos (columnas)
     private String code;
     @Field
-    private String lineId;
+    private long lineId;
     @Field
     private float velocity;
     @Field

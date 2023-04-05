@@ -3,9 +3,11 @@ package com.juansenen.citytravelREACTIVE.service;
 import com.juansenen.citytravelREACTIVE.domain.TrainStatus;
 import com.juansenen.citytravelREACTIVE.repository.TrainStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@Service
 public class TrainStatusServiceImpl implements TrainStatusService{
 
     @Autowired
@@ -18,5 +20,10 @@ public class TrainStatusServiceImpl implements TrainStatusService{
     @Override
     public Mono<TrainStatus> findByCode(String code) {
         return trainStatusRepository.findByCode(code);
+    }
+
+    @Override
+    public void addTrain(TrainStatus trainStatus) {
+        trainStatusRepository.save(trainStatus).block();
     }
 }
