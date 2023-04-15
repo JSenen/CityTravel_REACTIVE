@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "d82e2646-4744-4c8c-8907-7ca2f99b0054",
+		"name": "CITY-TRAVEL REACTIVE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17632514"
+	},
+	"item": [
+		{
+			"name": "/trainsStatus",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{API_REACTIVE_CityTravel}}/trainsStatus",
+					"host": [
+						"{{API_REACTIVE_CityTravel}}"
+					],
+					"path": [
+						"trainsStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/trainsStatus/{code}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{API_REACTIVE_CityTravel}}/trainsStatus/TRN-715",
+					"host": [
+						"{{API_REACTIVE_CityTravel}}"
+					],
+					"path": [
+						"trainsStatus",
+						"TRN-715"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/trainsStatus/{code}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{API_REACTIVE_CityTravel}}/trainStatus/TRN-715",
+					"host": [
+						"{{API_REACTIVE_CityTravel}}"
+					],
+					"path": [
+						"trainStatus",
+						"TRN-715"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/trainsStatus",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\":\"TRN-{{$randomInt}}\",\n    \"lineId\":{{randomLine}},\n    \"velocity\":{{$randomInt}},\n    \"weight\":{{$randomInt}},\n    \"kwH\":{{$randomInt}}\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_REACTIVE_CityTravel}}/trainsStatus",
+					"host": [
+						"{{API_REACTIVE_CityTravel}}"
+					],
+					"path": [
+						"trainsStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/trainsStatus/{code}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\":\"TRN-{{$randomInt}}\",\n    \"lineId\":{{randomLine}},\n    \"velocity\":{{$randomInt}},\n    \"weight\":{{$randomInt}},\n    \"kwH\":{{$randomInt}}\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_REACTIVE_CityTravel}}/trainsStatus/TRN-715",
+					"host": [
+						"{{API_REACTIVE_CityTravel}}"
+					],
+					"path": [
+						"trainsStatus",
+						"TRN-715"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
