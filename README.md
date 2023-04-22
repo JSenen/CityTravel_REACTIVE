@@ -7,10 +7,18 @@
 ![RectiveX](https://img.shields.io/badge/reactivex-grey?style=for-the-badge&logo=reactivex&logoColor=violet)
 ***
 Se ha creado una simulación de una API Reactiva, la cual, por medio de **RXJava**,implementación open-source de la 
-librería ReactiveX para una programación reactiva. 
+librería ReactiveX para una programación reactiva.
 Trabajando bajo flujos de datos asincronos.
+La Api simula un flujo continuo de datos con un tren, en el que se comprueba Velocidad, Peso y KwH.
 
-Se ha usado como base de datos, MongoDB y se han realizado una peticiones:
+Se ha usado como motor de base de datos, MongoDB
+Para arrancar MonfoDb, desde la terminal se debe introducir el siguiente comando:
+
+```
+mongod --dbpath /[Ruta a mongo db]
+```
+
+y se han realizado una peticiones:
 1. GET
     ```
     @GetMapping(value = "/trainsStatus", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
